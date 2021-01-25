@@ -9,5 +9,11 @@ class DestinationController:
         condition = [
             {'field': 'id', 'op': '==', 'value': destination_id}
         ]
-        des = apply_filters(query, condition).first();
-        print(des.address)
+        des = apply_filters(query, condition).first()
+        return des
+
+    def get_all_destination(self):
+        query = db.session.query(Destination)
+        condition = []
+        des = apply_filters(query, condition).all()
+        return des
